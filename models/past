@@ -1,0 +1,10 @@
+const past = [
+  {
+    company: '',
+    title: ,
+    years_worked:
+  },
+
+]
+
+module.exports = past

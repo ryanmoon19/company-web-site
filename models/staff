@@ -1,0 +1,11 @@
+const past = [
+  {
+    staff_member: '',
+    picture: ''
+
+
+  }
+
+]
+
+module.exports = past
