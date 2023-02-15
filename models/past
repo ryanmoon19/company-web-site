@@ -1,9 +1,9 @@
 const past = [
   {
     company: '',
-    title: ,
-    years_worked:
-  },
+    title: '',
+    years_worked:''
+  }
 
 ]
 
