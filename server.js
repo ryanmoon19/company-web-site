@@ -7,6 +7,10 @@ const app = express();
 const ejs = require("ejs");
 const path = require("path");
 
+// middleware
+app.use(express.static(__dirname + "/public"));
+
+
 //add view engine and add views to path
 
 app.set("view engine", "ejs");
@@ -38,3 +42,5 @@ app.get("/contact", (req, res) => {
 app.listen(3000, () => {
   console.log("Server started on port 3000");
 });
+
+console.log(__dirname);
