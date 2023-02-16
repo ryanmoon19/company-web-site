@@ -4,7 +4,13 @@
 // -- packages
 const express = require("express");
 const app = express();
+const ejs = require("ejs");
+const path = require("path");
 
+//add view engine and add views to path
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 // -- database;
 const past = require("./models/past");
@@ -20,9 +26,9 @@ app.get("/", (req, res) => {
   res.send("Hello, world!");
 });
 
-// get contacts page
+//render contact
 app.get("/contact", (req, res) => {
-	res.render("contact.ejs")
+  res.render("contact");
 });
 
 
