@@ -1,10 +1,23 @@
 const past = [
   {
-    company: '',
-    title: '',
-    years_worked:''
-  }
-
-]
-
-module.exports = past
+    company: "Acme Corporation",
+    title: "Sales Representative",
+    yearsWorked: 2,
+  },
+  { company: "Globex", title: "Financial Analyst", yearsWorked: 21 },
+  {
+    company: "Initech",
+    title: "Sales Representative",
+    yearsWorked: 24,
+  },
+  {
+    company: "Umbrella Corporation",
+    title: "Financial Analyst",
+    yearsWorked: 4,
+  },
+  {
+    company: "Wayne Enterprises",
+    title: "Sales Representative",
+    yearsWorked: 23,
+  },
+];
