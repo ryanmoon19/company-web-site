@@ -213,6 +213,14 @@ nav {
     padding: 0;
     display: flex;
   }
+
+  #linksUl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: initial;
+  }
+  
   li {
     margin: 0 10px;
   }

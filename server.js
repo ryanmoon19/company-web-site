@@ -20,7 +20,7 @@ app.set("views", path.join(__dirname, "views"));
 const past = require("./models/past");
 const staff = require("./models/staff.js");
 
-const links = require("./models/links");
+const links = require("./models/links.js");
 
 // =======================
 //       ROUTES
@@ -41,6 +41,12 @@ app.get("/staff", (req, res) => {
   res.render("staff", { staff: staff }); // pass the staff array to the staff.ejs template
 });
 
+//render quotes template
+app.get("/links", (req, res) => {
+  res.render("links", { links: links }); // pass the staff array to the staff.ejs template
+});
+
+
 // =======================
 //       LISTENER
 // =======================
@@ -49,5 +55,3 @@ app.listen(4000, () => {
 });
 
 console.log(__dirname);
-
-console.log(staff)
