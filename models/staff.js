@@ -1,4 +1,4 @@
-const past = [
+const staff = [
   {
     staff_member: "Michael Scott",
     quote: "That's what she said.",
@@ -25,4 +25,4 @@ const past = [
   },
 ];
 
-module.exports = staff
+module.exports = staff;
