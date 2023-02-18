@@ -231,3 +231,8 @@ nav {
   a:hover {
     text-decoration: underline;
   }
+
+  #dundMiff{
+    margin: 60px;
+    height: 400px;
+  }
