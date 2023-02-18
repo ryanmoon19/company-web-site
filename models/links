@@ -1,9 +1,0 @@
-const links = [
-  {
-    name: '',
-    url: '',
-  },
-
-]
-
-module.exports = links
