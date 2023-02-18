@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/retro.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!--Header-->
+      <%- include('./partials/header.ejs') %>
+
+      <main class="pastClients">
+        <h1>Our Past Clients</h1>
+        <ul>
+          <% for(let i = 0; i < past.length; i++){ %>
+          <li>Company: <%= past[i].company %></li>
+          <li>Client: <%= past[i].client %></li>
+          <li>Years Served: <%= past[i].years_worked %></li>
+          <br />
+          <% } %>
+        </ul>
+        <a href="/home" class="back-btn">Back to Home Page</a>
+      </main>
+
+      <!--footer-->
+      <%- include('./partials/footer.ejs') %>
+    </div>
+  </body>
+</html>
