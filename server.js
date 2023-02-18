@@ -30,18 +30,27 @@ app.get("/", (req, res) => {
   res.send("Hello, world!");
 });
 
+//render home
+app.get("/index", (req, res) => {
+  res.render("index");
+});
+
 //render contact
 app.get("/contact", (req, res) => {
   res.render("contact");
 });
 
+//render company
+app.get("/company", (req, res) => {
+  res.render("company");
+});
 
 //render quotes template
 app.get("/staff", (req, res) => {
   res.render("staff", { staff: staff }); // pass the staff array to the staff.ejs template
 });
 
-//render quotes template
+//render links template
 app.get("/links", (req, res) => {
   res.render("links", { links: links }); // pass the staff array to the staff.ejs template
 });
