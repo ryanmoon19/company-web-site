@@ -1,23 +1,24 @@
-const past = [
+const pastClients = [
   {
-    company: "Acme Corporation",
-    title: "Sales Representative",
-    yearsWorked: 2,
-  },
-  { company: "Globex", title: "Financial Analyst", yearsWorked: 21 },
-  {
-    company: "Initech",
-    title: "Sales Representative",
-    yearsWorked: 24,
+    company: "Dunmore High School",
+    client: "Jim Jansen",
+    years_worked: "2005-2013",
   },
   {
-    company: "Umbrella Corporation",
-    title: "Financial Analyst",
-    yearsWorked: 4,
+    company: "Stone, Cooper, and Grandy: Attorneys at law",
+    client: "Aaron Grandy",
+    years_worked: "2005-2013",
   },
   {
-    company: "Wayne Enterprises",
-    title: "Sales Representative",
-    yearsWorked: 23,
+    company: "Ban's Pet Grooming",
+    client: "Charles Ban",
+    years_worked: "2005-2013",
+  },
+  {
+    company: "Stone & Son Suit Warehouse",
+    client: "Harold Stone",
+    years_worked: "2005-2013",
   },
 ];
+
+module.exports = pastClients;
