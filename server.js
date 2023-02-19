@@ -6,6 +6,7 @@ const express = require("express");
 const app = express();
 const ejs = require("ejs");
 const path = require("path");
+const nodemailer = require("nodemailer")
 
 // middleware
 app.use(express.static(__dirname + "/public"));
@@ -42,6 +43,18 @@ app.get("/contact", (req, res) => {
 
 app.post("/contact", (req, res)=>{
   console.log(req.body)
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'condor;lkjdf;alj@gmail.com',
+      pass: 'assword'
+    }
+  })
+  const mailOptions ={
+    from: req.body.email,
+    to: 'askdjfhaklsd@asdl;kfj.com'
+    subject: `Message from ${req.body.email}: ${req.body.subject}`
+  }
 })
 
 //render company
