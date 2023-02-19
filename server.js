@@ -9,7 +9,7 @@ const path = require("path");
 
 // middleware
 app.use(express.static(__dirname + "/public"));
-
+app.use(express.json())
 
 //add view engine and add views to path
 
@@ -39,6 +39,10 @@ app.get("/index", (req, res) => {
 app.get("/contact", (req, res) => {
   res.render("contact", { staff: staff });
 });
+
+app.post("/contact", (req, res)=>{
+  console.log(req.body)
+})
 
 //render company
 app.get("/company", (req, res) => {
