@@ -72,10 +72,13 @@ const title = getTitle(links);
 console.log(title)
 // grab url information from links array
 const getUrls = () =>{
-for (const key in links) {
-  return(`${links[key].url}`);
+const urlArray = []
+for (i = 0; i < links.length; i++) {
+  urlArray.push(links[i].url)
 }
+return urlArray
 }
+
 const urls = getUrls()
 //render links template
 app.get("/links", (req, res) => {
