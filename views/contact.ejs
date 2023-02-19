@@ -10,8 +10,18 @@
 <body>
     <!-- ============ NAVBAR ============ -->
     <%- include ('./partials/header.ejs') %>
-
+<!-- contact form -->
+<div class="form-container">
+    <form class ="contact-form">
+        <h2>CONTACT</h2>
+        <input type="text" id="name" placeholder="Full name" ><br>
+        <input type="email" id="email" placeholder="Email" ><br>
+        <textarea type="message" id="message" placeholder="Message" cols="30" rows="10"></textarea><br>
+        <input type="submit" class="submit" value="Send Message">
+    </form>
+</div>
     <!-- Footer -->
     <%- include('./partials/footer.ejs') %>
+    <script src="js/app.js"></script>
 </body>
 </html>

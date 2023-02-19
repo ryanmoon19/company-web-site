@@ -37,7 +37,7 @@ app.get("/index", (req, res) => {
 
 //render contact
 app.get("/contact", (req, res) => {
-  res.render("contact");
+  res.render("contact", { staff: staff });
 });
 
 //render company
