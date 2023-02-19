@@ -55,25 +55,31 @@ app.get("/staff", (req, res) => {
   res.render("staff", { staff: staff }); // pass the staff array to the staff.ejs template
 });
 
-//parse title links
+//get title names from links
 const getTitle = (links) => {
   const titleArray = [];
   for (let i = 0; i < links.length; i++) {
     const inputString = links[i].title;
     const index = inputString.indexOf("|");
     if (index !== -1) {
-      const outputString = inputString.substring(0, index);
+      const outputString = inputString.substring(0, index - 1);
       titleArray.push(outputString);
     }
   }
   return titleArray;
 };
 const title = getTitle(links);
-
-
+console.log(title)
+// grab url information from links array
+const getUrls = () =>{
+for (const key in links) {
+  return(`${links[key].url}`);
+}
+}
+const urls = getUrls()
 //render links template
 app.get("/links", (req, res) => {
-  res.render("links", { links: links, title: title }); // pass the staff array to the staff.ejs template
+  res.render("links", { urls: urls, title: title }); // pass the staff array to the staff.ejs template
 });
 
 
