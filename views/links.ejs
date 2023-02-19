@@ -10,14 +10,15 @@
 <body>
  
     <!-- ============ NAVBAR ============ -->
-    <%- include ('./partials/navbar.ejs') %>
+    <%- include ('./partials/header.ejs') %>
 
 <h1>Links</h1>
-<ul id="linksUl">
-  <% links.forEach(member => { %>
-    <li><%= member.title %>: <%= member.url %></li>
-  <% }) %>
+<ul>
+  <% for (let i = 0; i < urls.length; i++) { %>
+    <li><a href="<%= urls[i] %>"><%= title[i] %></a></li>
+  <% } %>
 </ul>
 
 </body>
 </html>
+

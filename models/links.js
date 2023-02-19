@@ -22,3 +22,18 @@ const links = [
 ];
 
 module.exports = links;
+
+const getTitle=()=>{
+  const titleArray = [];
+for(let i = 0; i < links.length; i++){
+const inputString = links[i].title;
+const index = inputString.indexOf("|");
+if (index !== -1) {
+  const outputString = inputString.substring(0, index);
+  titleArray.push(outputString);
+}
+}
+return titleArray
+}
+const title = getTitle()
+

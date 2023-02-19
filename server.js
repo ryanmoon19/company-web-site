@@ -46,21 +46,48 @@ app.get("/company", (req, res) => {
 });
 
 //render quotes template
+app.get("/past", (req, res) => {
+  res.render("past", { past: past }); // pass the staff array to the staff.ejs template
+});
+
+//render quotes template
 app.get("/staff", (req, res) => {
   res.render("staff", { staff: staff }); // pass the staff array to the staff.ejs template
 });
 
+//get title names from links
+const getTitle = (links) => {
+  const titleArray = [];
+  for (let i = 0; i < links.length; i++) {
+    const inputString = links[i].title;
+    const index = inputString.indexOf("|");
+    if (index !== -1) {
+      const outputString = inputString.substring(0, index - 1);
+      titleArray.push(outputString);
+    }
+  }
+  return titleArray;
+};
+const title = getTitle(links);
+console.log(title)
+// grab url information from links array
+const getUrls = () =>{
+for (const key in links) {
+  return(`${links[key].url}`);
+}
+}
+const urls = getUrls()
 //render links template
 app.get("/links", (req, res) => {
-  res.render("links", { links: links }); // pass the staff array to the staff.ejs template
+  res.render("links", { urls: urls, title: title }); // pass the staff array to the staff.ejs template
 });
 
 
 // =======================
 //       LISTENER
 // =======================
-app.listen(4000, () => {
-  console.log("Server started on port 4000");
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
 });
 
 console.log(__dirname);
