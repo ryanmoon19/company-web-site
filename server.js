@@ -7,6 +7,7 @@ const app = express();
 const ejs = require("ejs");
 const path = require("path");
 const nodemailer = require("nodemailer")
+require('dotenv').config()
 
 // middleware
 app.use(express.static(__dirname + "/public"));
@@ -41,20 +42,32 @@ app.get("/contact", (req, res) => {
   res.render("contact", { staff: staff });
 });
 
+// console.log(process.env.EMAIL_PASS);
 app.post("/contact", (req, res)=>{
   console.log(req.body)
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "protonmail",
     auth: {
-      user: 'condor;lkjdf;alj@gmail.com',
-      pass: 'assword'
-    }
-  })
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    },
+  });
+
   const mailOptions ={
     from: req.body.email,
-    to: 'askdjfhaklsd@asdl;kfj.com'
-    subject: `Message from ${req.body.email}: ${req.body.subject}`
+    to: 'king.archy.13013@protonmail.com',
+    subject: `Message from ${req.body.email}: ${req.body.subject}`,
+    text: req.body.message
   }
+  transporter.sendMail(mailOptions, (error, info) =>{
+    if(error){
+      console.log(error)
+      res.send('error');
+    }else{
+      console.log('email sent: ' + info.response)
+      res.send('success')
+    }
+  })
 })
 
 //render company
