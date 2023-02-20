@@ -6,10 +6,12 @@ const express = require("express");
 const app = express();
 const ejs = require("ejs");
 const path = require("path");
+const nodemailer = require("nodemailer")
+require('dotenv').config()
 
 // middleware
 app.use(express.static(__dirname + "/public"));
-
+app.use(express.json())
 
 //add view engine and add views to path
 
@@ -37,8 +39,36 @@ app.get("/index", (req, res) => {
 
 //render contact
 app.get("/contact", (req, res) => {
-  res.render("contact");
+  res.render("contact", { staff: staff });
 });
+
+// console.log(process.env.EMAIL_PASS);
+app.post("/contact", (req, res)=>{
+  console.log(req.body)
+  const transporter = nodemailer.createTransport({
+    service: "protonmail",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    },
+  });
+
+  const mailOptions ={
+    from: req.body.email,
+    to: 'king.archy.13013@protonmail.com',
+    subject: `Message from ${req.body.email}: ${req.body.subject}`,
+    text: req.body.message
+  }
+  transporter.sendMail(mailOptions, (error, info) =>{
+    if(error){
+      console.log(error)
+      res.send('error');
+    }else{
+      console.log('email sent: ' + info.response)
+      res.send('success')
+    }
+  })
+})
 
 //render company
 app.get("/company", (req, res) => {
@@ -72,10 +102,13 @@ const title = getTitle(links);
 console.log(title)
 // grab url information from links array
 const getUrls = () =>{
-for (const key in links) {
-  return(`${links[key].url}`);
+const urlArray = []
+for (i = 0; i < links.length; i++) {
+  urlArray.push(links[i].url)
 }
+return urlArray
 }
+
 const urls = getUrls()
 //render links template
 app.get("/links", (req, res) => {
